@@ -1,7 +1,18 @@
 import * as types from '../constants/index';
 
 const initialState = {
-    constructor: {}
+    constructor: {
+        title: "Test name",
+        description: "Type the test description",
+        complexity: ['HARD', 'MIDDLE', 'LOW'],
+        type: ['SELECT', 'UPDATE', 'DELETE', 'INSERT'],
+        tasks: [],
+        isOpenSubmitForm: false,
+        link: ''
+    },
+    trainer: {
+        tasks: []
+    }
 };
 
 const reducer = (state = initialState, action) => {
@@ -12,6 +23,11 @@ const reducer = (state = initialState, action) => {
                 constructor: action.payload
             };
 
+        case types.CHANGE_TRAINER:
+            return {
+                ...state,
+                trainer: action.payload
+            };
 
         default:
             return state;

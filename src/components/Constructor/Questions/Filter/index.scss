@@ -1,0 +1,11 @@
+.constructor__questions {
+    background: #EDE7F6;
+    
+    .filters {
+        display: flex;
+
+        & > div {
+            margin-right: 20px;
+        }
+    }
+}

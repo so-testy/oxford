@@ -1,0 +1,28 @@
+.trainer__main {
+    margin-top: 25px;
+    padding: 20px 25px;
+    min-height: 40px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+
+    .info {
+        display: flex;
+        justify-content: space-between;
+        
+        .question {
+
+            .title {
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 23px;
+                letter-spacing: 0.02em;
+            }
+
+            .text {
+                margin-top: 10px;
+            }
+        }
+
+        .database {}
+    }
+}
