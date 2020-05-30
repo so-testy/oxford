@@ -56,7 +56,7 @@ const ConstructorSubmit = ({ constructor, changeConstructor }) => {
                 }
             })
         });
-        
+
         const json = await res.json();
 
         setLoading(false);
@@ -105,14 +105,18 @@ const ConstructorSubmit = ({ constructor, changeConstructor }) => {
                 </DialogActions>
             </Dialog>
 
-            <Dialog open={openResultModal} onClose={handleCloseResultModal} aria-labelledby="form-dialog-title">
+            <Dialog 
+                maxWidth={"lg"} 
+                open={openResultModal} 
+                onClose={handleCloseResultModal} 
+                aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">
                     Test published successfully
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Link to test: <a href={`http://localhost:3000/#/trainer/${constructor.link}`}>
-                            {`http://localhost:3000/#/trainer/${constructor.link}`}    
+                        Link to test: <a href={`https://so-testy.github.io/oxford/#/trainer/${constructor.link}`}>
+                            {`https://so-testy.github.io/oxford/#/trainer/${constructor.link}`}
                         </a>
                     </DialogContentText>
                 </DialogContent>
