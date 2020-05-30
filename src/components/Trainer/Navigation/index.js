@@ -13,7 +13,9 @@ const TrainerNavigation = props => {
     const changeTask = (index) => {
         changeTrainer({
             ...trainer,
-            currTaskIndex: index
+            currTaskIndex: index,
+            result: null,
+            sql: ""
         })
     }
 
@@ -26,6 +28,7 @@ const TrainerNavigation = props => {
                             <Button
                                 disabled={trainer.currTaskIndex === index}
                                 onClick={() => changeTask(index)}
+                                style={{ backgroundColor: task.isSuccess ? "green": undefined}}
                                 key={index}>
                                 {index + 1}
                             </Button>
