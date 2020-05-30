@@ -11,6 +11,10 @@ import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Alert from '@material-ui/lab/Alert';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 import './index.scss';
 import withRedux from './withRedux';
@@ -18,6 +22,7 @@ import withRedux from './withRedux';
 const TrainerMain = props => {
 
     const { trainer, changeTrainer } = props;
+    const [openDatabaseModal, setOpenDatabaseModal] = React.useState(false);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -75,9 +80,24 @@ const TrainerMain = props => {
                 error: true
             });
         }
+    }
 
+    const handleOpenDatabase = () => {
+        setOpenDatabaseModal(true);
+    }
 
+    const handleCloseDatabaseModal = () => {
+        setOpenDatabaseModal(false);
+    }
 
+    const getDatabaseFrameSrc = () => {
+        const dbIdNameMap = {
+            "4ed2b809d7446b9a0e100001": "airo",
+            "4ed2b809d7446b9a0e100002": "family",
+            "4ed2b809d7446b9a0e100003": "schedule",
+        }
+        const dbId = trainer.tasks[trainer.currTaskIndex].database;
+        return `https://drawsql.app/sql-academy-1/diagrams/${dbIdNameMap[dbId]}/embed`
     }
 
     return (
@@ -92,7 +112,7 @@ const TrainerMain = props => {
                     </div>
                 </div>
                 <div className="database">
-                    <Button onClick={() => { }} color="primary">
+                    <Button onClick={handleOpenDatabase} color="primary">
                         SHOW DATABASE
                     </Button>
                 </div>
@@ -152,7 +172,32 @@ const TrainerMain = props => {
                     ) : ""}
                 </div>
             </div>
-
+            <Dialog
+                open={openDatabaseModal}
+                maxWidth={"lg"}
+                fullWidth={true}
+                onClose={handleCloseDatabaseModal}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+                <DialogTitle id="alert-dialog-title">Database</DialogTitle>
+                <DialogContent >
+                    <iframe 
+                        width="100%" 
+                        height="600px"
+						allowFullScreen={true} 
+						scrolling="no" 
+						title={`Database`} 
+					    frameBorder="0"
+						src={getDatabaseFrameSrc()} 
+					/>
+                </DialogContent>
+                <DialogActions>
+                <Button onClick={handleCloseDatabaseModal} color="primary" autoFocus>
+                    Close
+                </Button>
+                </DialogActions>
+            </Dialog>
         </section>)
 
 }
