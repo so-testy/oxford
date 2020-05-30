@@ -11,7 +11,8 @@ const initialState = {
         link: ''
     },
     trainer: {
-        tasks: []
+        tasks: [],
+        sql: ''
     }
 };
 
