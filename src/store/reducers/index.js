@@ -4,7 +4,7 @@ const initialState = {
     constructor: {
         title: "Test name",
         description: "Type the test description",
-        complexity: ['HARD', 'MIDDLE', 'LOW'],
+        complexity: ['HARD', 'MEDIUM', 'EASY'],
         type: ['SELECT', 'UPDATE', 'DELETE', 'INSERT'],
         tasks: [],
         isOpenSubmitForm: false,

@@ -21,8 +21,8 @@ const useStyles = makeStyles((theme) => ({
 
 const complexity = [
     'HARD',
-    'MIDDLE',
-    'LOW'
+    'MEDIUM',
+    'EASY'
 ];
 
 const type = [

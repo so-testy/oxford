@@ -48,14 +48,14 @@ const columns = [
         label: 'Type',
         align: 'right',
         minWidth: 40,
-        getValue: task => task.type,
+        getValue: task => task.type.toUpperCase(),
     },
     {
         id: 'complexity',
         label: 'Complexity',
         minWidth: 40,
         align: 'right',
-        getValue: task => task.complexity,
+        getValue: task => task.complexity.toUpperCase(),
     }
 ];
 
@@ -89,7 +89,7 @@ const QuestionsTable = (props) => {
                 const formattedTask = tasks.map(task => ({
                     ...task,
                     isSelected: false,
-                    complexity: task.points > 3 ? task.points > 6 ? 'hard' : 'middle' : 'low'
+                    complexity: task.points > 3 ? task.points > 6 ? 'hard' : 'medium' : 'easy'
                 }));
 
                 changeConstructor({
