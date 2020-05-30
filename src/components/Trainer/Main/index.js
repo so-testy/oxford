@@ -66,6 +66,7 @@ const TrainerMain = props => {
                         if (index === trainer.currTaskIndex) {
                             return {
                                 ...task,
+                                sql: trainer.sql,
                                 isSuccess: true
                             }
                         } else return task
