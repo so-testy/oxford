@@ -75,7 +75,7 @@ const ConstructorSubmit = ({ constructor, changeConstructor }) => {
                 <DialogTitle id="form-dialog-title">Publish</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        For the results of passing the tests enter your email
+                        Enter your email to receive test results.
                     </DialogContentText>
                     <TextField
                         autoFocus
@@ -115,8 +115,8 @@ const ConstructorSubmit = ({ constructor, changeConstructor }) => {
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Link to test: <a href={`https://so-testy.github.io/oxford/#/trainer/${constructor.link}`}>
-                            {`https://so-testy.github.io/oxford/#/trainer/${constructor.link}`}
+                        Link to test: <a href={`https://${window.location.host}/#/trainer/${constructor.link}`}>
+                            {`https://${window.location.host}/#/trainer/${constructor.link}`}
                         </a>
                     </DialogContentText>
                 </DialogContent>

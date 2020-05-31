@@ -12,6 +12,8 @@ const initialState = {
         link: '',
     },
     trainer: {
+        isTestStarted: false,
+        isTestCompleted: false,
         tasks: [],
         color: '#EDE7F6',
         sql: ''

@@ -4,6 +4,8 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 import TrainerNavigation from "../../components/Trainer/Navigation/index";
 import TrainerMain from "../../components/Trainer/Main/index";
+import TrainerInfo from "../../components/Trainer/Info/index";
+import TrainerCompleted from "../../components/Trainer/Complete/index";
 
 import withRedux from './withRedux';
 import "./index.scss";
@@ -46,12 +48,15 @@ class TrainerPage extends Component {
                             <div className="loading">
                                 <CircularProgress />
                             </div>
-                        ) : (
-                            <>
-                                <TrainerNavigation />
-                                <TrainerMain />
-                            </>
-                        )
+                        ) 
+                        : !this.props.trainer.isTestStarted 
+                            ? <TrainerInfo />
+                            : this.props.trainer.isTestCompleted
+                                ? <TrainerCompleted />
+                                : (<>
+                                    <TrainerNavigation />
+                                    <TrainerMain />
+                                </>)
                     }
                 </main>
 			</div>)

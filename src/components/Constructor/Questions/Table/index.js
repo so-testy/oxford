@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -10,6 +10,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import Checkbox from '@material-ui/core/Checkbox';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import withRedux from './withRedux';
 import "./index.scss";
@@ -55,7 +56,7 @@ const columns = [
         label: 'Complexity',
         minWidth: 40,
         align: 'right',
-        getValue: task => task.complexity.toUpperCase(),
+        getValue: task => task.complexity[0].toUpperCase() + task.complexity.substr(1),
     }
 ];
 
@@ -70,6 +71,7 @@ const QuestionsTable = (props) => {
     const { constructor, changeConstructor } = props;
 
     const [page, setPage] = React.useState(0);
+    const [isLoading, setIsLoading] = React.useState(true);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
     const handleChangePage = (event, newPage) => {
@@ -80,6 +82,13 @@ const QuestionsTable = (props) => {
         setRowsPerPage(+event.target.value);
         setPage(0);
     };
+
+    const filteredTasks = useMemo(() => {
+        return constructor.tasks.filter(task => {
+            return constructor.type.includes(task.type.toUpperCase()) && 
+                constructor.complexity.includes(task.complexity.toUpperCase())
+        });
+    }, [constructor]);
 
     useEffect(() => {
         (async () => {
@@ -92,6 +101,8 @@ const QuestionsTable = (props) => {
                     complexity: task.points > 3 ? task.points > 6 ? 'hard' : 'medium' : 'easy'
                 }));
 
+                setIsLoading(false);
+
                 changeConstructor({
                     ...constructor,
                     tasks: formattedTask,
@@ -102,7 +113,11 @@ const QuestionsTable = (props) => {
 
     return (
         <div className="table">
-            <Paper className={classes.root}>
+            {isLoading ? (
+                <div className="loading">
+                    <CircularProgress />
+                </div>
+            ) : (<Paper className={classes.root}>
                 <TableContainer className={classes.container}>
                     <Table stickyHeader aria-label="sticky table">
                         <TableHead>
@@ -119,10 +134,7 @@ const QuestionsTable = (props) => {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {constructor.tasks.filter(task => {
-                                return constructor.type.includes(task.type.toUpperCase()) && 
-                                    constructor.complexity.includes(task.complexity.toUpperCase())
-                            }).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(task => {
+                            {filteredTasks.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(task => {
                                 return (
                                     <TableRow hover role="checkbox" tabIndex={-1} key={task.id}>
                                         {columns.map((column) => {
@@ -141,13 +153,14 @@ const QuestionsTable = (props) => {
                 <TablePagination
                     rowsPerPageOptions={[5, 10, 50]}
                     component="div"
-                    count={constructor.tasks.length}
+                    count={filteredTasks.length}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onChangePage={handleChangePage}
                     onChangeRowsPerPage={handleChangeRowsPerPage}
                 />
             </Paper>
+        )}
         </div>)
 }
 

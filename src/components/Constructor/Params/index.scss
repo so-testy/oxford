@@ -3,7 +3,7 @@
     grid-template-columns: 700px auto;
     margin-top: 25px;
     padding: 20px 25px;
-    min-height: 60px;
+    // min-height: 60px;
     background: #FFFFFF;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
 
@@ -20,8 +20,14 @@
                 letter-spacing: 0.02em;
                 width: 100%;
                 outline: none;
-                text-transform: uppercase;;
-            }
+                text-transform: uppercase;
+                border-bottom: 2px solid;
+                border-bottom-color: transparent;
+                transition: all 0.2s ease-in-out;
+                
+                &:focus {
+                    border-bottom-color: #e0e0e0;
+                }}
         }
 
         .description {
@@ -35,7 +41,13 @@
                 color: #606060;
                 width: 100%;
                 outline: none;
-            }
+                border-bottom: 2px solid;
+                border-bottom-color: transparent;
+                transition: all 0.2s ease-in-out;
+                
+                &:focus {
+                    border-bottom-color: #e0e0e0;
+                }}
         }
     }
 

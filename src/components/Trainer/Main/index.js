@@ -142,8 +142,8 @@ const TrainerMain = props => {
                 </div>
                 <div className="table">
                     {trainer.result ? trainer.result.success ? (
-                        <Alert severity="success">Correct answer</Alert>
-                    ) : <Alert severity="warning">Answer is not correct</Alert> : ''}
+                        <Alert severity="success" style={{ marginBottom: 10 }}>Correct answer</Alert>
+                    ) : <Alert severity="warning" style={{ marginBottom: 10 }}>Answer is not correct</Alert> : ''}
                     {trainer.error ? <Alert severity="error">Execution error</Alert> : ""}
                     {trainer.result ? (
                         <TableContainer component={Paper}>

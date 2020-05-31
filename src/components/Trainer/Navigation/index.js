@@ -70,36 +70,40 @@ const TrainerNavigation = props => {
                 }))
             })
         });
+
+
+        changeTrainer({
+            ...trainer,
+            isTestCompleted: true,
+        });
         
         setOpenCompleteModal(false);
-        setOpenSuccessCompleteModal(true);
+        // setOpenSuccessCompleteModal(true);
     }
 
     return (
         <section className='trainer__nav'>
             <div className='tasks'>
-                <ButtonGroup color='primary' aria-label='outlined primary button group'>
-                    {
+            {
                         trainer.tasks.map((task, index) => {
                             return (
                                 <Button
                                     disabled={trainer.currTaskIndex === index}
                                     onClick={() => changeTask(index)}
-                                    style={{ backgroundColor: task.isSuccess ? 'green' : undefined }}
+                                    style={{ backgroundColor: task.isSuccess ? "#5dc55d" : undefined, color: task.isSuccess ? "white" : '#333', marginRight: 6 }}
                                     key={index}>
                                     {index + 1}
                                 </Button>
                             )
                         })}
-                </ButtonGroup>
             </div>
             <div className='complete'>
                 <Button color='primary' onClick={handleOpenCompleteModal}>
-                    COMPLETE
+                    COMPLETE TEST
                 </Button>
             </div>
             <Dialog open={openCompleteModal} onClose={handleCloseCompleteModal} aria-labelledby='form-dialog-title'>
-                <DialogTitle id='form-dialog-title'>Complete</DialogTitle>
+                <DialogTitle id='form-dialog-title'>Complete test</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
                         Provide information about yourself before sending
@@ -134,7 +138,7 @@ const TrainerNavigation = props => {
                     </Button>
                 </DialogActions>
             </Dialog>
-            <Dialog
+            {/* <Dialog
                 open={openSuccessCompleteModal}
                 keepMounted
                 onClose={handleCloseSuccessCompleteModal}
@@ -147,7 +151,7 @@ const TrainerNavigation = props => {
                     Your solution has been sent successfully!
                 </DialogContentText>
                 </DialogContent>
-            </Dialog>
+            </Dialog> */}
         </section>)
 
 }

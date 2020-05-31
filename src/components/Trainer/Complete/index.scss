@@ -1,0 +1,28 @@
+.trainer__test-info {
+    display: flex;
+    justify-content: space-between;
+    // margin-top: 25px;
+    padding: 20px 25px;
+    min-height: 40px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 900px;
+    width: 100%;
+
+
+    .title {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 23px;
+        letter-spacing: 0.02em;
+    }
+
+    .text {
+        margin-top: 10px;
+    }
+}
