@@ -8,10 +8,12 @@ const initialState = {
         type: ['SELECT', 'UPDATE', 'DELETE', 'INSERT'],
         tasks: [],
         isOpenSubmitForm: false,
-        link: ''
+        color: '#EDE7F6',
+        link: '',
     },
     trainer: {
         tasks: [],
+        color: '#EDE7F6',
         sql: ''
     }
 };

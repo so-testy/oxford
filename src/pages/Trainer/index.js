@@ -36,7 +36,8 @@ class TrainerPage extends Component {
     }
 
 	render() {
-
+        document.body.style.background = this.props.trainer.color || "#EDE7F6";
+        
 		return (
 			<div className="trainer">
                 <main>

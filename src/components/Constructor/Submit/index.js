@@ -127,7 +127,7 @@ const ConstructorSubmit = ({ constructor, changeConstructor }) => {
                 </DialogActions>
             </Dialog>
 
-            <section className='constructor__submit'>
+            <section className='constructor__submit' style={{background: constructor.color || '#EDE7F6'}}>
                 <div className="container">
                     <div className='title'>
                         SELECTED {constructor.tasks.filter(x => x.isSelected).length} TASKS
