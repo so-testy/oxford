@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/oxford/static/css/main.02dcbfa0.chunk.css",
-    "main.js": "/oxford/static/js/main.87d2b2b3.chunk.js",
-    "main.js.map": "/oxford/static/js/main.87d2b2b3.chunk.js.map",
+    "main.css": "/oxford/static/css/main.5285975e.chunk.css",
+    "main.js": "/oxford/static/js/main.7addf3ab.chunk.js",
+    "main.js.map": "/oxford/static/js/main.7addf3ab.chunk.js.map",
     "runtime-main.js": "/oxford/static/js/runtime-main.69507663.js",
     "runtime-main.js.map": "/oxford/static/js/runtime-main.69507663.js.map",
-    "static/js/2.34839e5a.chunk.js": "/oxford/static/js/2.34839e5a.chunk.js",
-    "static/js/2.34839e5a.chunk.js.map": "/oxford/static/js/2.34839e5a.chunk.js.map",
+    "static/js/2.3701485e.chunk.js": "/oxford/static/js/2.3701485e.chunk.js",
+    "static/js/2.3701485e.chunk.js.map": "/oxford/static/js/2.3701485e.chunk.js.map",
     "index.html": "/oxford/index.html",
-    "precache-manifest.36abb95cb467ee760748a866d7eae821.js": "/oxford/precache-manifest.36abb95cb467ee760748a866d7eae821.js",
+    "precache-manifest.f0af03d0f896806cba6456305891ac4a.js": "/oxford/precache-manifest.f0af03d0f896806cba6456305891ac4a.js",
     "service-worker.js": "/oxford/service-worker.js",
-    "static/css/main.02dcbfa0.chunk.css.map": "/oxford/static/css/main.02dcbfa0.chunk.css.map"
+    "static/css/main.5285975e.chunk.css.map": "/oxford/static/css/main.5285975e.chunk.css.map"
   }
 }
