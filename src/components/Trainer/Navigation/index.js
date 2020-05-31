@@ -24,7 +24,7 @@ const TrainerNavigation = props => {
             ...trainer,
             currTaskIndex: index,
             result: null,
-            sql: "",
+            sql: '',
             error: false,
         })
     }
@@ -77,15 +77,15 @@ const TrainerNavigation = props => {
 
     return (
         <section className='trainer__nav'>
-            <div className="tasks">
-                <ButtonGroup color="primary" aria-label="outlined primary button group">
+            <div className='tasks'>
+                <ButtonGroup color='primary' aria-label='outlined primary button group'>
                     {
                         trainer.tasks.map((task, index) => {
                             return (
                                 <Button
                                     disabled={trainer.currTaskIndex === index}
                                     onClick={() => changeTask(index)}
-                                    style={{ backgroundColor: task.isSuccess ? "green" : undefined }}
+                                    style={{ backgroundColor: task.isSuccess ? 'green' : undefined }}
                                     key={index}>
                                     {index + 1}
                                 </Button>
@@ -93,43 +93,43 @@ const TrainerNavigation = props => {
                         })}
                 </ButtonGroup>
             </div>
-            <div className="complete">
-                <Button onClick={handleOpenCompleteModal}>
+            <div className='complete'>
+                <Button color='primary' onClick={handleOpenCompleteModal}>
                     COMPLETE
                 </Button>
             </div>
-            <Dialog open={openCompleteModal} onClose={handleCloseCompleteModal} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Complete</DialogTitle>
+            <Dialog open={openCompleteModal} onClose={handleCloseCompleteModal} aria-labelledby='form-dialog-title'>
+                <DialogTitle id='form-dialog-title'>Complete</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
                         Provide information about yourself before sending
                     </DialogContentText>
                     <TextField
                         autoFocus
-                        margin="dense"
-                        label="Email Address"
-                        type="email"
-                        name="userEmail"
+                        margin='dense'
+                        label='Email Address'
+                        type='email'
+                        name='userEmail'
                         value={trainer.userEmail || ''}
                         onChange={handleInputChange}
                         fullWidth
                     />
                     <TextField
                         autoFocus
-                        margin="dense"
-                        label="Your name"
-                        type="text"
-                        name="userName"
+                        margin='dense'
+                        label='Your name'
+                        type='text'
+                        name='userName'
                         value={trainer.userName || ''}
                         onChange={handleInputChange}
                         fullWidth
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleCloseCompleteModal} color="primary">
+                    <Button onClick={handleCloseCompleteModal} color='primary'>
                         Cancel
                     </Button>
-                    <Button onClick={handleSubmit} color="primary">
+                    <Button onClick={handleSubmit} color='primary'>
                         Complete
                     </Button>
                 </DialogActions>
@@ -138,12 +138,12 @@ const TrainerNavigation = props => {
                 open={openSuccessCompleteModal}
                 keepMounted
                 onClose={handleCloseSuccessCompleteModal}
-                aria-labelledby="alert-dialog-slide-title"
-                aria-describedby="alert-dialog-slide-description"
+                aria-labelledby='alert-dialog-slide-title'
+                aria-describedby='alert-dialog-slide-description'
             >
-                <DialogTitle id="alert-dialog-slide-title">THANK!</DialogTitle>
+                <DialogTitle id='alert-dialog-slide-title'>THANK!</DialogTitle>
                 <DialogContent>
-                <DialogContentText id="alert-dialog-slide-description">
+                <DialogContentText id='alert-dialog-slide-description'>
                     Your solution has been sent successfully!
                 </DialogContentText>
                 </DialogContent>
