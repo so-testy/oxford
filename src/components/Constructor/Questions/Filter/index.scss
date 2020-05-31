@@ -1,0 +1,20 @@
+.constructor__questions {
+  background: #ede7f6;
+
+  .filters {
+    display: flex;
+
+    & > div {
+      margin-right: 20px;
+    }
+
+    .makeStyles-formControl-1 {
+        margin: 0;
+    }
+
+  }
+}
+
+.MuiPaper-rounded {
+  border-radius: 2px !important;
+}
