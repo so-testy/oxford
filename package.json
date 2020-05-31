@@ -2,7 +2,7 @@
   "name": "hack",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://so-testy.github.io/oxford",
+  "homepage": "https://so-testy.github.io/",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",

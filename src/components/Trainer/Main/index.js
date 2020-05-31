@@ -72,6 +72,7 @@ const TrainerMain = props => {
                         } else return task
                     }),
                     result: result.body,
+                    error: false,
                 });
             }
         } else {
